@@ -1,4 +1,4 @@
-public class Main {
+public class DC_58_problem {
     public static void main(String[] args) {
         // Your main method code here
         String input = "Hello World";
