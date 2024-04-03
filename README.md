@@ -12,6 +12,7 @@ To use the code in this repository, you can simply clone the repository to your 
 
 ```bash
 git clone https://github.com/Nayak-sakshi/Leetcode_Daily_challenges_april_2024
+```
 ## Usage
 You can find the solutions to each daily challenge in the corresponding directory for that day.
 
