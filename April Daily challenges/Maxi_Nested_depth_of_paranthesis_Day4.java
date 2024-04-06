@@ -1,57 +1,20 @@
-//public class Maxi_Nested_depth_of_paranthesis_Day4 {
-//
-//}
-
-//Given an m x n grid of characters board and a string word, return true if word exists in the grid.
-//The word can be constructed from letters of sequentially adjacent cells,
-//where adjacent cells are horizontally or vertically neighboring. The same letter cell may not be used more than once.
-
-//Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
-//Output: true
+//A string is a valid parentheses string (denoted VPS) if it meets one of the following:
+//Input: s = "(1+(2*3)+((8)/4))+1"
+//Output: 3
+//Explanation: Digit 8 is inside of 3 nested parentheses in the string.
 
 class Solution {
-    public boolean exist(char[][] board, String word) {
-        int m =board.length;
-        int n =board[0].length;
-        for(int r=0;r<m;r++){
-            for(int c=0;c<n;c++){
-                if(word.charAt(0)==board[r][c]){
-                    boolean found = dfs(board,r,c,word,0);
-                    if(found) return true;
-                }
+    public int maxDepth(String s) {
+        int currentOpen = 0;
+        int maxOpen = 0;
+        for(int i=0;i<s.length();i++){
+            if(s.charAt(i)=='('){
+                currentOpen++;
+            }else if(s.charAt(i)==')'){
+                currentOpen--;
             }
+            maxOpen = Math.max(maxOpen, currentOpen);
         }
-        return false;
-    }
-    public boolean dfs(char[][] board, int r, int c, String word, int wordIndex){
-        // Base case
-        //valid case
-        if(wordIndex==word.length()){
-            return true;
-        }
-        //Out of bounf Case
-        int row = board.length;
-        int cols = board[0].length;
-        if(r<0 || c<0 || r>=row || c>=cols){
-            return false;
-        }
-        //Invalid Cases
-        if(board[r][c] ==' ' || board[r][c]!=word.charAt(wordIndex)){
-            return false;
-        }
-        //Mark as Visited
-        char ch = board[r][c];
-        board[r][c] = ' ';
-        // dfs calls
-
-        if( dfs(board,r-1,c,word, wordIndex+1)||
-                dfs(board,r,c+1,word, wordIndex+1)||
-                dfs(board,r+1,c,word, wordIndex+1) ||
-                dfs(board,r,c-1,word, wordIndex+1)){
-            return true;
-        }
-        //Backtracking
-        board[r][c] = ch;
-        return false;
+        return maxOpen;
     }
 }
