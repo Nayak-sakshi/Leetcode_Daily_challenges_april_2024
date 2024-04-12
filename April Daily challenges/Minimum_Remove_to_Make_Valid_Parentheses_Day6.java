@@ -9,7 +9,7 @@
 //It is the empty string, contains only lowercase characters, or
 //It can be written as AB (A concatenated with B), where A and B are valid strings, or
 //It can be written as (A), where A is a valid string.
-class Solution {
+class Minimum_Remove_to_Make_Valid_Parentheses_Day6 {
     public String minRemoveToMakeValid(String s) {
         StringBuilder sb = new StringBuilder();
         int n = s.length();
